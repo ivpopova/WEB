@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="javascript/js.js"></script>
+    <title>JavaScript Lint</title>
+</head>
+<body>
+    <header>
+        <h1>JavaScript Lint</h1>
+    </header>
+    <aside>
+        <a class="active" href="#">Какво е JavaScript Lint?</a>
+        <a href="#section-2">Защо трябва да ползваме JavaScript Lint?</a>
+        <a href="#section-3">Как работят Lint Tools?</a>
+        <a href="#section-4">За какво проверява JavaScript Lint?</a>
+        <a href="#section-5">Настройване на JavaScript Lint</a>
+        <a href="#section-6">Деактивиране на предупреждения</a>
+        <a href="#section-7">Option Explicit</a>
+        <a href="#section-8">Switches and Breaks</a>
+        <a href="#section-9">Празни изрази </a>
+        <a href="#section-10">Advanced Output Format</a>
+        <a href="#section-11">JavaScript Linting Tools</a>
+        <a href="#section-12">Източници</a>
+    </aside>
+    <main>
+        <section id="section-1">
+            <h2>Какво е JavaScript Lint? <a href="#source-1">[1]</a><a href="#source-4">[4]</a><a href="#source-5">[5]</a></h2>
+            <p>JavaScript Linters са инструменти, които могат да се използват за отстраняване на грешки в кода. 
+                Те сканират скриптовете за често срещани проблеми и грешки, като връщат отчет с номерата на редове. 
+                В допълнение към действителните грешки, те също така проверяват за стилистични предпочитания.
+                Тези инструменти са основен анализатор на статичен код.
+            </p>
+            <figure>
+                <img src="img/figure-1.jpg" alt="Фигура 1. Цитат за програмисти"/>
+                <figcaption>Фигура 1. Цитат за програмисти <a href="#source-11">[11]</a></figcaption>
+            </figure>
+            <p>JavaScript Lint има предимство, защото се основава на 
+                JavaScript механизъм на браузъра Firefox. Това осигурява 
+                стабилност, която може не само да проверява синтаксиса на JavaScript, 
+                но и да изследва използваните в скрипта техники за кодиране и да предупреждава срещу съмнителни практики.
+            </p>
+        </section>
+        <section id="section-2">
+            <h2>Защо трябва да ползваме JavaScript Lint? <a href="#source-4">[4]</a><a href="#source-5">[5]</a></h2>
+            <p>
+                Lint инструментите са важни за намаляване на грешките и подобряване на цялостното качество на кода.
+                Използването им може да помогне за ускоряване на разработката и за намаляване на разходите, 
+                като грешките се намерят и отстранят по-рано в процеса на разработване.
+            </p>
+        </section>
+        <section id="section-3">
+            <h2>Как работят Lint Tools? <a href="#source-5">[5]</a></h2>
+            <ol>
+                <li>Пишете кода.</li>
+                <li>Компилирате го.</li>
+                <li>Анализирате го с Lint Tools.</li>
+                <li>Получавате ревю на самия код с грешките.</li>
+                <li>Оправяте грешките/Подобрявате кода.</li>
+                <li>Свържете модулите, когато кодът няма грешки.</li>
+                <li>Анализирайте ги с инструмента.</li>
+                <li>Направете ръчен преглед на кода.</li>
+            </ol>
+            <p>
+                Lint programming е вид автоматизирана проверка. Това трябва да се случи в началото на разработката, преди прегледите и
+                 тестването на кода. Това е така, защото автоматизираните проверки на кода правят процесите за преглед и тестване на кода
+                 по-ефективни.
+            </p>
+        </section>
+        <section id="section-4">
+            <h2>За какво проверява JavaScript Lint? <a href="#source-1">[1]</a></h2>
+            <p>Това са някои от грешките, за които търси JavaScript Lint:</p>
+            <ul>
+                <li>Липсващи запетая в края на ред.</li>
+                <li>Къдрави скоби без <mark>if</mark>, <mark>for</mark>, <mark>while</mark> и други.</li>
+                <li>Код, който никога не се изпълнява, поради <mark>return</mark>, <mark>throw</mark>, <mark>continue</mark>, <mark>break</mark>.</li>
+                <li>Водещи и последващи десетични точки върху число.</li>
+                <li>Коментари в коментари.</li>
+                <li>Неяснота дали два съседни реда са част от едно и също условие.</li>
+                <li>Изрази, които не правят нищо.</li>
+            </ul>
+            <p>
+                JavaScript Lint следи и за следните грешки, които обаче не са толкова често срещани:
+            </p>
+            <ul>
+                <li>Регулярни изрази, които не са предшествани от лява скоба, присвояване, двоеточие или запетая.</li>
+                <li>Изрази, които са разделени със запетаи вместо с точка и запетая.</li>
+                <li>Използване на инкремент <mark>(++)</mark> и декремент <mark>(--)</mark> с изключение на прости изрази като <mark>"i ++;"</mark> или <mark>"-- i;"</mark>.</li>
+                <li>Използване на типа <mark>void</mark>.</li>
+                <li>Последователни знаци плюс <mark>(напр. х+++ y)</mark> или минус <mark>(напр. х--- y)</mark>.</li>
+                <li><mark>if</mark>, <mark>for</mark>, <mark>while</mark> и други без къдрави скоби.</li>
+            </ul>
+            <p>
+                Програмистите с повече опит дори могат да конфигурират JavaScript Lint, за да проверяват недекларирани идентификатори, за които ще прочетете в следващите няколко точки.
+            </p>
+        </section>
+        <section id="section-5">
+            <h2>Настройване на JavaScript Lint <a href="#source-1">[1]</a></h2>
+            <p>
+                Можете да стартирате JavaScript Lint по няколко начина:
+            </p>
+            <ol>
+                <li>
+                    Можете да го интегрирате във вашето IDE, като Visual Studio, SciTE или всяко друго IDE, 
+                    поддържащо външни инструменти. Когато JavaScript Lint открие грешка, вашето IDE ще ви отведе директно до 
+                    реда, съдържащ грешката. 
+                </li>
+                <li>
+                    Можете да го стартирате чрез Windows Explorer, което Windows програмистите предпочитат. 
+                </li>
+                <li>
+                    Можете да използвате командния ред, за да го интегрирате! За повече информация натисни 
+                    <a href="https://blog.logrocket.com/four-options-to-help-you-get-started-linting-your-javascript-b4b829828648/" target="_blank">тук</a>!
+                </li>
+                <li>
+                    Освен това, ако сте разработчик на софтуер, може да искате да се интегрира във вашата програма за Windows или да я 
+                    стартирате от вашия PHP уебсайт, за да се възползвате от пълната мощ на JavaScript Lint.
+                </li>
+            </ol>
+        </section>
+        <section id="section-6">
+            <h2>Деактивиране на предупреждения <a href="#source-1">[1]</a></h2>
+            <p>
+                JavaScript Lint има ограничена поддръжка за контролни коментари <mark>(Control Comment)</mark>. За да деактивирате 
+                предупрежденията в част от вашия JavaScript файл, можете да добавите следните коментари:
+            </p>
+            <pre>
+                <code>
+                    /*jsl:ignore*/
+                    (code that fires warnings)
+                    /*jsl:end*/
+                </code>
+            </pre>
+            <p>
+                За да игнорирате всички предупреждения във файл, просто поставете <code>/ * jsl: ignoreall * /</code> в горната част на файла.
+            </p>
+        </section>
+        <section id="section-7">
+            <h2>Option Explicit <a href="#source-1">[1]</a></h2>
+            <p>
+                JavaScript Lint може по желание да проверява за променливи, функции и обекти, които не съществуват, подобно на <mark>"Option Explicit"</mark> на Visual Basic. 
+                В интерес на това да направи JavaScript Lint достъпен за обикновения програмист, тази мощна функция е деактивирана по подразбиране. Тя осигурява 
+                по-високо ниво на защита срещу грешки в кодирането. Променлива, която не е изрично декларирана, има глобален обхват. Например, ако функция използва 
+                броячна променлива и извика друга функция, която използва броячна променлива със същото име, освен ако тези функции използват ключовата дума var за 
+                деклариране на променливата, двете функции ще имат достъп и модифицират същата променлива. Това почти никога не поражда очакваното поведение.
+            </p>
+            <h3>Важно!</h3>
+            <p>
+                <strong>
+                    JavaScript Lint не проверява свойствата на обекта. Те не използват ключовата дума <mark>var</mark> и не могат да бъдат проверени без изпълнение на скрипта. 
+                    Предупрежденията за недекларирани идентификатори ще се появят след други предупреждения, които могат да се появят в скрипта. Това е по дизайн, 
+                    тъй като целият скрипт трябва да бъде разгледан, преди идентификаторите да могат да бъдат наречени недефинирани.
+                </strong>     
+            </p>
+        </section>
+        <section id="section-8">
+            <h2>Switches and Breaks <a href="#source-1">[1]</a></h2>
+            <p>
+                По подразбиране JavaScript Lint предупреждава срещу липсващи пробиви в switch statements. Понякога обаче инструкциите за прекъсване са умишлено изключени. 
+                За да посочите това, използвайте <code>/ * jsl: fallthru * /</code> control коментар:
+
+            </p>
+            <pre>
+                <code>
+                    switch (i) {
+                        case 1:
+                          break;
+                        case 2:
+                          /*jsl:fallthru*/
+                        case 3:
+                          break;
+                      }                                        
+                </code>
+            </pre>
+        </section>
+        <section id="section-9">
+            <h2>Празни изрази (Empty Statements) <a href="#source-1">[1]</a></h2>
+            <p>
+                По подразбиране JavaScript Lint предупреждава срещу празни изрази. Понякога обаче празните изрази са с определена цел. 
+                За да посочите това, използвайте <code>/ * jsl: pass * /</code> control коментар:
+            </p>
+            <pre>
+                <code>
+                    while (!hasResponse()) {
+                        /*jsl:pass*/
+                    }                    
+                </code>
+            </pre>
+        </section>
+        <section id="section-10">
+            <h2>Advanced Output Format <a href="#source-1">[1]</a></h2>
+            <p>
+                Следните изходни формати също могат да се използват:
+            </p>
+            <ul>
+                <li><code>__ERROR_PREFIX__ </code > индикира за типа на съобщението </li>
+                <li><code>__ERROR_MSG__ </code> показва съдържанието на съобщението</li>
+                <li><code>__ERROR__ </code> показва пълната грешка, включително вида на грешката и съобщението</li>
+            </ul>
+            <h3>Важно!</h3>
+            <p>
+                <strong>
+                    Ако изходният формат е с префикс <mark>"encode:"</mark>, всички обратни наклонени черти, единични и двойни кавички, табове, 
+                    carriage returns и прекъсвания на редове ще бъдат изведени като \, ' и ", \t, \r, и \n (съответно).
+                </strong>
+            </p>
+        </section>
+        <section id="section-11">
+            <h2>JavaScript Linting Tools <a href="#source-2">[2]</a><a href="#source-6">[6]</a><a href="#source-7">[7]</a></h2>
+            <p>Някои от тях:</p>
+            <ul>
+                <li>JS Lint</li>
+                <li>JS Hint</li>
+                <li>ES Lint</li>
+                <li>JSCS</li>
+            </ul>
+            <p>
+                Четирите инструмента работят по един основен начин. Те имат набор от правила, които използват за анализ и докладване на проблеми в JavaScript файлове. 
+                Те могат да бъдат инсталирани чрез npm. Те се използват от командния ред чрез предаване на файлове, налични са като приставки за инструменти като Grunt или 
+                са интегрирани в редактори. Всички те поддържат използването на коментари за конфигуриране.
+            </p>
+            <p>
+                Но дотам приликите свършват. Всеки от инструментите има своите плюсове и минуси. Ако искате да научите повече информация за тях, продължете по-надолу:
+            </p>
+            <h3>JS Lint</h3>
+            <figure>
+                <img src="img/figure-2.png" alt="Фигура 2. Екранна снимка на JSLint"/>
+                <figcaption>Фигура 2. Екранна снимка на JSLint <a href="#source-8">[8]</a></figcaption>
+            </figure>
+            <p>JSLint е най-старият от тях. Дъглас Крокфорд го създава през 2002 г.</p>
+            <h4>Плюсове:</h4>
+            <ul>
+                <li>Той се предлага предварително конфигуриран и е готов за работа почти веднага</li>
+            </ul>
+            <h4>Минуси:</h4>
+            <ul>
+                <li>Не може да се конфигурира от потребителя</li>
+                <li>Не е разширяем - не можем да добавяме персонализирани правила</li>
+                <li>Няма много добра документация</li>
+                <li>Трудно е да се знае кое правило причинява дадена грешка</li>
+                <li>Няма поддръжка за ES6 или React</li>
+            </ul>
+            <p>
+                Ето и един пример за проверка на код в JSLint <a href="#source-3">[3]</a>:
+            </p>
+            <figure>
+                <img src="img/figure-3.png" alt="Фигура 3. Екранна снимка на JavaScript код в JSLint"/>
+                <figcaption>Фигура 3. Екранна снимка на JavaScript код в JSLint <a href="#source-8">[8]</a></figcaption>
+            </figure>
+            <p>
+                Пускаме проверката и изходния ни отчет е следния:
+            </p>
+            <figure>
+                <img src="img/figure-4.png" alt="Фигура 4. Екранна снимка на грешките, открити при проверката с JSLint"/>
+                <figcaption>Фигура 4. Екранна снимка на грешките, открити при проверката с JSLint <a href="#source-8">[8]</a></figcaption>
+            </figure>
+            <h3>JS Hint</h3>
+            <figure>
+                <img src="img/figure-5.png" alt="Фигура 5. Екранна снимка на JavaScript код в JS Hint"/>
+                <figcaption>Фигура 5. Екранна снимка на JavaScript код в JS Hint <a href="#source-9">[9]</a></figcaption>
+            </figure>
+            <p>
+                JS Hint е наследник на JS Lint. Можете да конфигурирате всяко правило и да ги поставите в конфигурационен файл, което прави JSHint лесен за използване в по-големи 
+                проекти. JSHint също има добра документация за всяко от правилата, така че да знаете точно какво правят. Интегрирането му в редакторите също е лесно.
+            </p>
+            <h4>Плюсове:</h4>
+            <ul>
+                <li>Има много добър съпорт</li>
+                <li>Поддържа конфигурационен файл, което улеснява използването му в по-големи проекти</li>
+                <li>Има поддръжка за много библиотеки, като jQuery, QUnit, NodeJS, Mocha</li>
+                <li>Поддържа основен ES6</li>
+            </ul>
+            <h4>Минуси:</h4>
+            <ul>
+                <li>Трудно е да се разбере кое правило е неуспешно</li>
+                <li>Не се разширява - не можем да създадем персонализирани правила</li>
+                <li>Няма поддръжка за  React</li>
+            </ul>
+            <h3>ES Lint</h3>
+            <figure>
+                <img src="img/figure-6.png" alt="Фигура 6. ES Lint extension в редактора VS Code"/>
+                <figcaption>Фигура 6. ES Lint extension в редактора VS Code <a href="#source-10">[10]</a></figcaption>
+            </figure>
+            <p>
+                ESLint е най-новият, сравнен с предните два. Той е проектиран да бъде лесно разширяем, идва с голям брой персонализирани правила и най-вече лесно се инсталират 
+                приставки. Той дава кратък отчет, като включва името на правилото по подразбиране, така че винаги да знаете кои правила причиняват съобщенията за грешка.
+            </p>
+            <h4>Плюсове:</h4>
+            <ul>
+                <li>Напълно конфигурируем - можете да конфигурирате/ активирате/ деактивирате всяко правило</li>
+                <li>Разширяем - можете да създадете свои собствени правила</li>
+                <li>Има богат набор от съществуващи правила според най-добрите практики</li>
+                <li>Поддържа ES6 и React</li>
+                <li>Лесен за разбиране изход с имена на правила</li>
+                <li>Правилата са много добре документирани с примери</li>
+                <li>Конфигуриран чрез конфигурационен файл (json / yaml / js) - Лесен за споделяне конфигурация между членовете на екипа</li>
+                <li>Лесна интеграция с IDE</li>
+            </ul>
+            <h4>Минуси:</h4>
+            <ul>
+                <li>Необходима е първоначална конфигурация</li>
+                <li>Бавно е, но не е голяма пречка това</li>
+            </ul>
+            <h3>JSCS</h3>
+            <figure>
+                <img src="img/figure-7.png" alt="Фигура 7. Екранна снимка как да намерим JSCS в VS code"/>
+                <figcaption>Фигура 7. Екранна снимка как да намерим JSCS в VS code</figcaption>
+            </figure>
+            <p>
+                JSCS се различава от останалите по това, че не прави нищо, освен ако не му дадете конфигурационен файл или не му кажете да използва предварително зададена настройка.
+                Можете да изтеглите конфигурации от уебсайта им, така че не е голям проблем и той има редица предварителни настройки, като предварително зададена настройка за стил на кодиране jQuery и
+                настройка на Google.
+            </p>
+            <p>
+                JSCS е програма за проверка на стила на кода. Това означава, че улавя само проблеми, свързани с форматирането на кода, а не потенциални грешки. В резултат на това той е по-малко 
+                гъвкав от останалите, но ако трябва да приложите определен стил на кодиране, това е работа, с която JSCS се справя добре.
+            </p>
+            <h4>Плюсове:</h4>
+            <ul>
+                <li>Поддържа потребителски репортери, които могат да улеснят интегрирането с други инструменти</li>
+                <li>Предварителните настройки и готовите конфигурационни файлове могат да улеснят настройката, ако следвате един от наличните стилове на кодиране</li>
+                <li>Има флаг за включване на имена на правила в отчетите, така че е лесно да разберете кое правило причинява дадена грешка</li>
+                <li>Може да се разшири с персонализирани плъгини</li>
+            </ul>
+            <h4>Минуси:</h4>
+            <ul>
+                <li>Открива само нарушения на стила на кодиране</li>
+                <li>JSCS не открива потенциални грешки като неизползвани променливи или случайни глобални променливи и т.н</li>
+                <li>Най-бавният от четирите, но това не е проблем при типичната му употреба</li>
+            </ul>
+            <p>
+                Ето и един пример за форматиране на JavaScript code с JSCS. От Command Palette можем да изберете „JSCSFormatter: Format this file“, 
+                за да форматирате автоматично текущия файл въз основа на правилата, посочени във вашата JSCS конфигурация:
+             </p>
+             <figure>
+                 <img src="img/figure-8.png" alt="Фигура 8. Проверка на JavaScript code с JSCS"/>
+                 <figcaption>Фигура 8. Проверка на JavaScript code с JSCS <a href="#source-12">[12]</a></figcaption>
+             </figure>
+             <p>
+                 След форматирането, получаваме следното:
+             </p>
+             <figure>
+                 <img src="img/figure-9.png" alt="Фигура 9. Форматиране на JavaScript code с JSCS"/>
+                 <figcaption>Фигура 9. Форматиране на JavaScript code с JSCS <a href="#source-12">[12]</a></figcaption>
+             </figure>
+            <h3>Обобщение за JavaScript Linting Tools <a href="#source-3">[3]</a></h3>
+            <p>
+                Най-лесният начин да направите проверка за грешки на кода е да използвате онлайн версиите на JSLint, JSHint или ESLint. Можете просто 
+                да поставите изходния си код и инструментите ще го направят веднага.
+                Това обаче не е удобно, освен за много малки проекти. За по-големи проекти е много по-удобно да се ползва task runner като Grunt или Gulp.
+                Можете да ги настроите да стартират линтера всеки път, когато правите промяна в изходния си код.
+            </p>
+        </section>
+        <section id="section-12">
+            <h2>Източници</h2>
+            <p id="source-1">
+                <i>[1]</i> "JavaScript Lint" [<a href="http://www.javascriptlint.com/" target="_blank">http://www.javascriptlint.com/</a>], 
+                последно посетенa на 24.04.2021.
+           </p>
+           <p id="source-2">
+                <i>[2]</i> "A Comparison of JavaScript Linting Tools" [<a href="https://www.sitepoint.com/comparison-javascript-linting-tools/" target="_blank">https://www.sitepoint.com/comparison-javascript-linting-tools/</a>],
+                публикувана на 05.03.2015, автор: Jani Hartikainen,             
+                последно посетенa на 26.04.2021.
+           </p>
+           <p id="source-3">
+                <i>[3]</i> "What are JavaScript linters?" [<a href="https://www.codereadability.com/what-are-javascript-linters/" target="_blank">https://www.codereadability.com/what-are-javascript-linters/</a>], 
+                публикувана на 01.11.2015,
+                последно посетенa на 27.04.2021.
+           </p>
+           <p id="source-4">
+                <i>[4]</i> "Why you should always use a Linter" [<a href="https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76" target="_blank">https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76</a>], 
+                публикувана на 22.06.2017, автор: Alberto Gimeno, 
+                последно посетенa на 27.04.2021.
+           </p>
+           <p id="source-5">
+                <i>[5]</i> "What Is Lint Code? And Why Is Linting Important?" [<a href="https://www.perforce.com/blog/qac/what-lint-code-and-why-linting-important" target="_blank">https://www.perforce.com/blog/qac/what-lint-code-and-why-linting-important</a>], 
+                публикувана на 19.03.2019, автор: Richard Bellairs,
+                последно посетенa на 27.04.2021.
+           </p>
+           <p id="source-6">
+                <i>[6]</i> "JavaScript Linting Tools Comparison" [<a href="https://codeburst.io/javascript-linting-tools-comparison-ebcb4aa23c49" target="_blank">https://codeburst.io/javascript-linting-tools-comparison-ebcb4aa23c49</a>], 
+                публикувана на 24.07.2017, автор: Sanket Meghani,
+                последно посетенa на 27.04.2021.
+           </p>
+           <p id="source-7">
+                <i>[7]</i> "10 CSS and JavaScript Linting Tools for Code Optimization" [<a href="https://www.hongkiat.com/blog/code-optimization-css-js-linting-tools/" target="_blank">https://www.hongkiat.com/blog/code-optimization-css-js-linting-tools/</a>], 
+                публикувана на 27.06.2020, автор: Anna Monus,
+                последно посетенa на 26.04.2021.
+           </p>
+           <p id="source-8">
+                <i>[8]</i> "JSLint" [<a href="https://jslint.com/" target="_blank">https://jslint.com/</a>], 
+                последно посетенa на 27.04.2021.
+           </p>
+           <p id="source-9">
+                <i>[9]</i> "JSHint" [<a href="https://jshint.com/" target="_blank">https://jshint.com/</a>], 
+                последно посетенa на 30.04.2021.
+           </p>
+           <p id="source-10">
+                <i>[10]</i> "ESLint – Pluggable JavaScript linter" [<a href="https://www.geeksforgeeks.org/eslint-pluggable-javascript-linter/" target="_blank">https://www.geeksforgeeks.org/eslint-pluggable-javascript-linter/</a>], 
+                публикувана на 14.10.2020,
+                последно посетенa на 30.04.2021.
+           </p>
+           <p id="source-11">
+                <i>[11]</i> "Programmer Quotes" [<a href="https://9gag.com/gag/aMjAM1A" target="_blank">https://9gag.com/gag/aMjAM1A</a>], 
+                последно посетенa на 28.04.2021.
+           <p id="source-12">
+                <i>[12]</i> "Auto-formatting JavaScript Code Style" [<a href="https://medium.com/@addyosmani/auto-formatting-javascript-code-style-fe0f98a923b8" target="_blank">https://medium.com/@addyosmani/auto-formatting-javascript-code-style-fe0f98a923b8</a>], 
+                публикувана на 31.04.2015, автор: Addy Osmani,
+                последно посетенa на 28.04.2021.
+           </p>
+        </section>
+    </main>
+</body>
+</html>
